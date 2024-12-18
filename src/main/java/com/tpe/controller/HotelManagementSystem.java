@@ -70,6 +70,7 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
+//                    TASK 1: Saving a hotel
                     break;
                 case 2:
                     break;
