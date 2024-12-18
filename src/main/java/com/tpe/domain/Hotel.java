@@ -18,6 +18,11 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel")  // private Hotel hotel; -> in the room class
     private List<Room> rooms = new ArrayList<>();
 
+    @PostPersist
+    public void postPersist(){
+        System.out.println("Hotel saved successfully.");
+    }
+
     public Hotel() {
     }
 

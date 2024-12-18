@@ -81,6 +81,7 @@ public class HotelManagementSystem {
                     hotelService.saveHotel();
                     break;
                 case 2:
+//                    TASK 2-a: find a hotel by ID
                     break;
                 case 3:
                     break;

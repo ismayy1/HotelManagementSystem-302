@@ -27,6 +27,22 @@ public class HotelService {
         newHotel.setLocation(scanner.nextLine());
 
         hotelRepository.save(newHotel);
-        System.out.println("The Hotel is saved successfully!");
+    }
+
+//    TASK 2-c: Display the hotel found by ID
+    public Hotel findHotelById() {
+
+        System.out.println("Enter Hotel ID:");
+
+        Long id = scanner.nextLong();
+        scanner.nextLine();
+
+        Hotel foundHotel = hotelRepository.findById(id);
+
+        System.out.println("=========================================================");
+        System.out.println(foundHotel);
+        System.out.println("=========================================================");
+
+        return foundHotel;
     }
 }
