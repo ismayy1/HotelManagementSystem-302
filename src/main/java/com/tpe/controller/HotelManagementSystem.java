@@ -1,5 +1,7 @@
 package com.tpe.controller;
 
+import com.tpe.config.HibernateUtils;
+
 import java.util.Scanner;
 
 public class HotelManagementSystem {
@@ -36,8 +38,12 @@ public class HotelManagementSystem {
                     displayReservationOperationsMenu();
                     break;
                 case 0:
+                    exit = true;
+                    System.out.println("Have a nice day!");
+                    HibernateUtils.shutDown();  // We close the SessionFactory when we're done with the app
                     break;
                 default:
+                    System.out.println("Invalid choice, please choose a valid option!");
                     break;
             }
         }
