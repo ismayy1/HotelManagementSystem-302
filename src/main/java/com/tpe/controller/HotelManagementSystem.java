@@ -82,6 +82,7 @@ public class HotelManagementSystem {
                     break;
                 case 2:
 //                    TASK 2-a: find a hotel by ID
+                    hotelService.findHotelById();
                     break;
                 case 3:
                     break;

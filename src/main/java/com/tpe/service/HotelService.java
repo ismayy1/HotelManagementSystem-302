@@ -1,6 +1,7 @@
 package com.tpe.service;
 
 import com.tpe.domain.Hotel;
+import com.tpe.exception.HotelNotFoundException;
 import com.tpe.repository.HotelRepository;
 
 import java.util.Scanner;
@@ -39,9 +40,19 @@ public class HotelService {
 
         Hotel foundHotel = hotelRepository.findById(id);
 
-        System.out.println("=========================================================");
-        System.out.println(foundHotel);
-        System.out.println("=========================================================");
+        try {
+            if (foundHotel != null) {
+                System.out.println("=========================================================");
+                System.out.println(foundHotel);
+                System.out.println("=========================================================");
+            } else {
+                throw new HotelNotFoundException("Hotel not found by the ID: " + id);
+            }
+        } catch (HotelNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+
 
         return foundHotel;
     }
