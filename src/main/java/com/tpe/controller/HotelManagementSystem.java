@@ -1,6 +1,8 @@
 package com.tpe.controller;
 
 import com.tpe.config.HibernateUtils;
+import com.tpe.repository.HotelRepository;
+import com.tpe.service.HotelService;
 
 import java.util.Scanner;
 
@@ -8,6 +10,11 @@ public class HotelManagementSystem {
 
     private static Scanner scanner = new Scanner(System.in);
 
+//    ==================================
+    HotelRepository hotelRepository;
+    HotelService hotelService = new HotelService(hotelRepository);
+
+//    ==================================
     public static void displayHotelManagementSystemMenu() {
 
         boolean exit = false;   // if exit is true, while condition is NOT false, so, true
