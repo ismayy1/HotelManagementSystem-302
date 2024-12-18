@@ -10,12 +10,12 @@ public class HotelManagementSystem {
 
     private static Scanner scanner = new Scanner(System.in);
 
-//    ==================================
-    HotelRepository hotelRepository;
-    HotelService hotelService = new HotelService(hotelRepository);
+    public static void displayHotelManagementSystemMenu() {
 
 //    ==================================
-    public static void displayHotelManagementSystemMenu() {
+        HotelRepository hotelRepository = new HotelRepository();
+        HotelService hotelService = new HotelService(hotelRepository);
+//    ==================================
 
         boolean exit = false;   // if exit is true, while condition is NOT false, so, true
 
@@ -33,7 +33,7 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
-                    displayHotelOperationsMenu();
+                    displayHotelOperationsMenu(hotelService);
                     break;
                 case 2:
                     displayRoomOperationsMenu();
@@ -57,7 +57,7 @@ public class HotelManagementSystem {
     }
 
     //hotel operations
-    private static void displayHotelOperationsMenu() {
+    private static void displayHotelOperationsMenu(HotelService hotelService) {
 
         System.out.println("Hotel Operation Menu");
 
@@ -77,7 +77,8 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
-//                    TASK 1: Saving a hotel
+//                    TASK 1-a: Saving a hotel
+                    hotelService.saveHotel();
                     break;
                 case 2:
                     break;
