@@ -89,6 +89,8 @@ public class HotelManagementSystem {
                     hotelService.findHotelById();
                     break;
                 case 3:
+//                    TASK 7-a: Delete Hotel By ID
+                    hotelService.deleteById();
                     break;
                 case 4:
                     //TASK 3-a: Find all hotels

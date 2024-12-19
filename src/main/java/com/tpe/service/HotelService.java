@@ -71,4 +71,23 @@ public class HotelService {
             System.out.println("There are no Hotels!");
         }
     }
+
+//    TASK 7-b:
+    public void deleteById() {
+
+        Hotel foundHotel = findHotelById();
+
+        if (foundHotel != null) {
+            System.out.println(foundHotel);
+            System.out.println("Are you sure that you wanna delete this hotel?");
+            System.out.println("Please choose Y (YES) or N (NO)");
+            String select = scanner.nextLine();
+
+            if (select.equalsIgnoreCase("y")) {
+                hotelRepository.delete(foundHotel);
+            } else {
+                System.out.println("Deletion cancelled!");
+            }
+        }
+    }
 }
