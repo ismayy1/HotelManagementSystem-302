@@ -5,6 +5,7 @@ import com.tpe.domain.Room;
 import com.tpe.exception.RoomNotFoundException;
 import com.tpe.repository.RoomRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class RoomService {
@@ -62,5 +63,21 @@ public class RoomService {
             System.out.println(e.getMessage());
         }
         return room;
+    }
+
+
+    //TASK 6-b
+    public void getAllRooms() {
+        List<Room> rooms = roomRepository.findAll();
+
+        if (!rooms.isEmpty()){
+            System.out.println("========== ALL ROOMS ==========");
+            for (Room room : rooms){
+                System.out.println(room);
+            }
+            System.out.println("================================");
+        }else {
+            System.out.println("There are no rooms.");
+        }
     }
 }

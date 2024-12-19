@@ -12,19 +12,17 @@ public class HotelManagementSystem {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void displayHotelManagementSystemMenu() {
+    public static void displayHotelManagementSystemMenu(){
 
-//    ==================================
         HotelRepository hotelRepository = new HotelRepository();
         HotelService hotelService = new HotelService(hotelRepository);
 
         RoomRepository roomRepository = new RoomRepository();
         RoomService roomService = new RoomService(hotelService, roomRepository);
-//    ==================================
 
-        boolean exit = false;   // if exit is true, while condition is NOT false, so, true
+        boolean exit = false; //If exit is false, while condition is NOT false, so, true.
 
-        while (!exit) {
+        while(!exit){
             System.out.println("========== HOTEL MANAGEMENT SYSTEM ==========");
             System.out.println("1 - Hotel Operations");
             System.out.println("2 - Room Operations");
@@ -34,9 +32,9 @@ public class HotelManagementSystem {
             System.out.println("Please enter an option:");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // clears the newLine character from the buffer if it exists
+            scanner.nextLine(); //Clears the newline character in the input buffer if it exists.
 
-            switch (choice) {
+            switch (choice){
                 case 1:
                     displayHotelOperationsMenu(hotelService);
                     break;
@@ -52,10 +50,10 @@ public class HotelManagementSystem {
                 case 0:
                     exit = true;
                     System.out.println("Have a nice day!");
-                    HibernateUtils.shutDown();  // We close the SessionFactory when we're done with the app
+                    HibernateUtils.shutDown(); //We close the SessionFactory when we are done with the app.
                     break;
                 default:
-                    System.out.println("Invalid choice, please choose a valid option!");
+                    System.out.println("Invalid choice, please choose a valid option.");
                     break;
             }
         }
@@ -64,6 +62,7 @@ public class HotelManagementSystem {
     //hotel operations
     private static void displayHotelOperationsMenu(HotelService hotelService) {
 
+        //HotelService service = new HotelService();
         System.out.println("Hotel Operation Menu");
 
         boolean exit = false;
@@ -82,17 +81,17 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
-//                    TASK 1-a: Saving a hotel
+                    //TASK 1-a: Saving a hotel
                     hotelService.saveHotel();
                     break;
                 case 2:
-//                    TASK 2-a: find a hotel by ID
+                    //TASK 2-a: Find a hotel
                     hotelService.findHotelById();
                     break;
                 case 3:
                     break;
                 case 4:
-//                    TASK 3-a: Find all hotels
+                    //TASK 3-a: Find all hotels
                     hotelService.getAllHotels();
                     break;
                 case 5:
@@ -111,6 +110,7 @@ public class HotelManagementSystem {
 
     //room operations
     private static void displayRoomOperationsMenu(RoomService roomService) {
+        //RoomService service = new RoomService();
         System.out.println("Room Operation Menu");
         boolean exit = false;
         while (!exit) {
@@ -127,16 +127,18 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
-//                    TASK 4-a: Add a room
+                    //TASK 4-a Add a room
                     roomService.saveRoom();
                     break;
                 case 2:
-//                    TASK 5-a: find room by ID
+                    //TASK 5-a: Find Room By ID
                     roomService.findRoomById();
                     break;
                 case 3:
                     break;
                 case 4:
+                    //TASK 6-a: Find all the rooms
+                    roomService.getAllRooms();
                     break;
                 case 0:
                     exit = true;
