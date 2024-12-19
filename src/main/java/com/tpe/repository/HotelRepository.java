@@ -6,6 +6,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class HotelRepository {
 
     private Session session;
@@ -33,6 +35,21 @@ public class HotelRepository {
             session = HibernateUtils.getSessionFactory().openSession();
             return session.get(Hotel.class, id);
 
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            HibernateUtils.closeSession(session);
+        }
+        return null;
+    }
+
+//    TASK 3-b: findAll
+    public List<Hotel> findAll() {
+        try {
+            session = HibernateUtils.getSessionFactory().openSession();
+//            String hql = "FROM Hotel";
+//            return session.createQuery(hql, Hotel.class).getResultList();
+            return session.createQuery("FROM Hotel", Hotel.class).getResultList();  // faster way
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
         } finally {
