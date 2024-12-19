@@ -4,6 +4,7 @@ import com.tpe.domain.Hotel;
 import com.tpe.exception.HotelNotFoundException;
 import com.tpe.repository.HotelRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class HotelService {
@@ -51,9 +52,23 @@ public class HotelService {
         } catch (HotelNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-
-
         return foundHotel;
+    }
+
+//    TASK 3-c: List of all Hotels
+    public void getAllHotels() {
+        List<Hotel> allHotels = hotelRepository.findAll();
+
+        if (allHotels.isEmpty()) {
+            System.out.println("=========== All Hotels ===========");
+
+            for (Hotel hotel: allHotels) {
+                System.out.println(hotel);
+            }
+
+            System.out.println("==================================");
+        } else {
+            System.out.println("There are no Hotels!");
+        }
     }
 }
