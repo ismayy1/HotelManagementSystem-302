@@ -15,7 +15,7 @@ public class Hotel {
     private String name;
     @Column(nullable = false)
     private String location;
-    @OneToMany(mappedBy = "hotel")  // private Hotel hotel; -> in the room class
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.REMOVE)  // private Hotel hotel; -> in the room class
     private List<Room> rooms = new ArrayList<>();
 
     @PostPersist

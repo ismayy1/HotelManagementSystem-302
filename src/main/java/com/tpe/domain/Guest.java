@@ -17,6 +17,7 @@ public class Guest {
 
     private LocalDateTime createDate;
 
+    @OneToMany(mappedBy = "guest", orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<>();
 
     @Embedded   // this annotation is optional
