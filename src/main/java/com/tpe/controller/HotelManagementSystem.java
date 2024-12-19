@@ -3,6 +3,7 @@ package com.tpe.controller;
 import com.tpe.config.HibernateUtils;
 import com.tpe.repository.HotelRepository;
 import com.tpe.service.HotelService;
+import com.tpe.service.RoomService;
 
 import java.util.Scanner;
 
@@ -15,6 +16,8 @@ public class HotelManagementSystem {
 //    ==================================
         HotelRepository hotelRepository = new HotelRepository();
         HotelService hotelService = new HotelService(hotelRepository);
+
+        RoomService roomService = new RoomService();
 //    ==================================
 
         boolean exit = false;   // if exit is true, while condition is NOT false, so, true
@@ -36,7 +39,7 @@ public class HotelManagementSystem {
                     displayHotelOperationsMenu(hotelService);
                     break;
                 case 2:
-                    displayRoomOperationsMenu();
+                    displayRoomOperationsMenu(roomService);
                     break;
                 case 3:
                     displayGuestOperationsMenu();
@@ -105,7 +108,7 @@ public class HotelManagementSystem {
     }
 
     //room operations
-    private static void displayRoomOperationsMenu() {
+    private static void displayRoomOperationsMenu(RoomService roomService) {
         System.out.println("Room Operation Menu");
         boolean exit = false;
         while (!exit) {
@@ -122,6 +125,8 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
+//                    TASK 4-a: Add a room
+                    roomService.saveRoom();
                     break;
                 case 2:
                     break;
