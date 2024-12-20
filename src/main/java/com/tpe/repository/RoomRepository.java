@@ -12,7 +12,6 @@ public class RoomRepository {
     private Session session;
 
     public void save(Room room) {
-
         try {
             session = HibernateUtils.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();

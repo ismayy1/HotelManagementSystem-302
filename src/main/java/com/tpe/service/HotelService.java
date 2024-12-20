@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class HotelService {
-
     private Scanner scanner = new Scanner(System.in);
     private final HotelRepository hotelRepository;
     public HotelService(HotelRepository hotelRepository) {

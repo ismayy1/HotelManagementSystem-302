@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtils {
-
     private static SessionFactory sessionFactory;
 
     static {
@@ -22,7 +21,6 @@ public class HibernateUtils {
                     .addAnnotatedClass(Room.class)
                     .addAnnotatedClass(Reservation.class)
                     .addAnnotatedClass(Guest.class);
-
             sessionFactory = configuration.buildSessionFactory();
         } catch (HibernateException e) {
             System.err.println("Initialization of sessionFactory failed!");
