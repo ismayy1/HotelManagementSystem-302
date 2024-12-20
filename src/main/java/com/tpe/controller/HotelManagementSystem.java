@@ -107,7 +107,6 @@ public class HotelManagementSystem {
                     break;
             }
         }
-
     }
 
     //room operations
@@ -151,7 +150,6 @@ public class HotelManagementSystem {
                     break;
             }
         }
-
     }
 
     //guest operations

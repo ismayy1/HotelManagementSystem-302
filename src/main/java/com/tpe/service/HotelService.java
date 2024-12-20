@@ -10,9 +10,7 @@ import java.util.Scanner;
 public class HotelService {
 
     private Scanner scanner = new Scanner(System.in);
-
     private final HotelRepository hotelRepository;
-
     public HotelService(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
     }
@@ -35,10 +33,8 @@ public class HotelService {
     public Hotel findHotelById() {
 
         System.out.println("Enter Hotel ID:");
-
         Long id = scanner.nextLong();
         scanner.nextLine();
-
         Hotel foundHotel = hotelRepository.findById(id);
 
         try {
@@ -65,7 +61,6 @@ public class HotelService {
             for (Hotel hotel: allHotels) {
                 System.out.println(hotel);
             }
-
             System.out.println("==================================");
         } else {
             System.out.println("There are no Hotels!");

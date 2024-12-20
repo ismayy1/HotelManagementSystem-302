@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RoomService {
-
     Scanner scanner = new Scanner(System.in);
-
     private final HotelService hotelService;
     private final RoomRepository roomRepository;
 
@@ -39,7 +37,6 @@ public class RoomService {
         } else {
             System.out.println("Failed to save the room!");
         }
-
         roomRepository.save(newRoom);
     }
 
@@ -49,8 +46,8 @@ public class RoomService {
         System.out.println("Enter Room ID:");
         Long id = scanner.nextLong();
         scanner.nextLine();
-
         Room room = roomRepository.findById(id);
+
         try{
             if (room != null) {
                 System.out.println("======================================");
@@ -64,7 +61,6 @@ public class RoomService {
         }
         return room;
     }
-
 
     //TASK 6-b
     public void getAllRooms() {

@@ -9,10 +9,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class RoomRepository {
-
-
     private Session session;
-
 
     public void save(Room room) {
 
@@ -20,7 +17,6 @@ public class RoomRepository {
             session = HibernateUtils.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             session.save(room);
-
             transaction.commit();
 //            System.out.println("The Room is saved successfully!");   // done with the postPersist method in Room Entity
         } catch (HibernateException e) {
@@ -35,7 +31,6 @@ public class RoomRepository {
         try {
             session = HibernateUtils.getSessionFactory().openSession();
             return session.get(Room.class, id);
-
         } catch (HibernateException e) {
             System.out.println(e.getMessage());
         } finally {

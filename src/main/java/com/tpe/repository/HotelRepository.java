@@ -9,7 +9,6 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class HotelRepository {
-
     private Session session;
 
 //    TASK 1-b:
@@ -19,7 +18,6 @@ public class HotelRepository {
             session = HibernateUtils.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             session.save(hotel);
-
             transaction.commit();
 //            System.out.println("The Hotel is saved successfully!");   // done with the postPersist method in Hotel Entity
         } catch (HibernateException e) {
