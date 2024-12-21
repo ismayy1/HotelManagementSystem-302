@@ -1,11 +1,13 @@
 package com.tpe.service;
 
+import com.tpe.domain.Guest;
 import com.tpe.domain.Reservation;
 import com.tpe.exception.GuestNotFoundException;
 import com.tpe.exception.ReservationNotFoundException;
 import com.tpe.exception.RoomNotFoundException;
 import com.tpe.repository.ReservationRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ReservationService {
@@ -39,5 +41,20 @@ public class ReservationService {
             System.out.println(e.getMessage());
         }
         return reservation;
+    }
+
+//    TASK 12-b:
+    public void findAllReservations() {
+        List<Reservation> reservations = reservationRepository.findAll();
+
+        if (!reservations.isEmpty()){
+            System.out.println("========== ALL RESERVATION ==========");
+            for (Reservation reservation : reservations){
+                System.out.println(reservation);
+            }
+            System.out.println("================================");
+        }else {
+            System.out.println("There are no reservations.");
+        }
     }
 }

@@ -51,4 +51,8 @@ public class GuestService {
             System.out.println("There are no guests.");
         }
     }
+
+    public void saveGuest() {
+
+    }
 }
