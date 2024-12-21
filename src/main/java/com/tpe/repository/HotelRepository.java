@@ -56,6 +56,20 @@ public class HotelRepository {
         return null;
     }
 
+    //    TASK 17-c:
+    public void update(Hotel hotel) {
+        try{
+            session = HibernateUtils.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.update(hotel);
+            transaction.commit();
+        }catch (HibernateException e){
+            System.out.println(e.getMessage());
+        }finally {
+            HibernateUtils.closeSession(session);
+        }
+    }
+
     public void delete(Hotel hotel) {
         try{
             session = HibernateUtils.getSessionFactory().openSession();

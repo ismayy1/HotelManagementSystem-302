@@ -29,7 +29,7 @@ public class HotelManagementSystem {
         GuestService guestService = new GuestService(guestRepository);
 
         ReservationRepository reservationRepository = new ReservationRepository();
-        ReservationService reservationService = new ReservationService(reservationRepository);
+        ReservationService reservationService = new ReservationService(reservationRepository, guestService, roomService);
 
         boolean exit = false; //If exit is false, while condition is NOT false, so, true.
 
@@ -57,6 +57,10 @@ public class HotelManagementSystem {
                     break;
                 case 4:
                     displayReservationOperationsMenu(reservationService);
+                    break;
+                case 5:
+//                    TASK 17-a: Update a Hotel
+                    hotelService.updateHotleById();
                     break;
                 case 0:
                     exit = true;
@@ -229,6 +233,8 @@ public class HotelManagementSystem {
 
             switch (choice) {
                 case 1:
+//                    TASK 15-a: Create a Reservation
+                    reservationService.createReservation();
                     break;
                 case 2:
 //                    TASK 11-a: Find Reservation By ID
@@ -239,6 +245,8 @@ public class HotelManagementSystem {
                     reservationService.findAllReservations();
                     break;
                 case 4:
+//                    TASK 16-a: Delete Reservation By ID
+                    reservationService.deleteReservationById();
                     break;
                 case 0:
                     exit = true;

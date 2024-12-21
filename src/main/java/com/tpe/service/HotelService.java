@@ -66,6 +66,24 @@ public class HotelService {
         }
     }
 
+    //    TASK 17-b:
+    public void updateHotleById() {
+        Hotel existsingHotel = findHotelById();
+
+        if (existsingHotel != null) {
+            String oldName = existsingHotel.getName();
+
+            System.out.println("Enter a new Hotel name for: " + oldName);
+            existsingHotel.setName(scanner.nextLine());
+
+            System.out.println("Enter a new Location name for: " + oldName);
+            existsingHotel.setLocation(scanner.nextLine());
+
+            hotelRepository.update(existsingHotel);
+            System.out.println("Hotel " + oldName + " updated successfully!");
+        }
+    }
+
 //    TASK 7-b:
     public void deleteById() {
 

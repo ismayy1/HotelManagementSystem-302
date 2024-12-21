@@ -2,11 +2,11 @@ package com.tpe.service;
 
 import com.tpe.domain.Guest;
 import com.tpe.domain.Reservation;
-import com.tpe.exception.GuestNotFoundException;
+import com.tpe.domain.Room;
 import com.tpe.exception.ReservationNotFoundException;
-import com.tpe.exception.RoomNotFoundException;
 import com.tpe.repository.ReservationRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,9 +15,32 @@ public class ReservationService {
     Scanner scanner = new Scanner(System.in);
 
     private final ReservationRepository reservationRepository;
+    private final GuestService guestService;
+    private final RoomService roomService;
 
-    public ReservationService(ReservationRepository reservationRepository) {
+    public ReservationService(ReservationRepository reservationRepository,
+                              GuestService guestService, RoomService roomService) {
         this.reservationRepository = reservationRepository;
+        this.guestService = guestService;
+        this.roomService = roomService;
+    }
+
+    //    TASK 15-b
+    public void createReservation() {
+        Reservation reservation = new Reservation();
+
+        System.out.println("Enter check-in Date (yyyy-MM-dd)");
+        reservation.setCheckInDate(LocalDate.parse(scanner.nextLine()));
+        System.out.println("Enter check-out Date (yyyy-MM-dd)");
+        reservation.setCheckOutDate(LocalDate.parse(scanner.nextLine()));
+
+        Room room = roomService.findRoomById();
+        Guest guest = guestService.findGuestById();
+
+        reservation.setRoom(room);
+        reservation.setGuest(guest);
+
+        reservationRepository.save(reservation);
     }
 
 //    TASK 11-b:
@@ -55,6 +78,18 @@ public class ReservationService {
             System.out.println("================================");
         }else {
             System.out.println("There are no reservations.");
+        }
+    }
+
+//    TASK 16-b:
+    public void deleteReservationById() {
+        Reservation reservation = findReservationByID();
+
+        if (reservation != null) {
+            reservationRepository.delete(reservation);
+            System.out.println("Reservation cancelled!");
+        } else {
+            System.out.println("Deletion Cancelled!");
         }
     }
 }
