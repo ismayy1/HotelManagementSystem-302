@@ -78,7 +78,6 @@ public class Room {
                 "id=" + id +
                 ", number='" + number + '\'' +
                 ", capacity=" + capacity +
-                ", reservations=" + reservations +
                 '}';
     }
 }
