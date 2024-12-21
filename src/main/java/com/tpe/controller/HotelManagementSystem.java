@@ -136,6 +136,8 @@ public class HotelManagementSystem {
                     roomService.findRoomById();
                     break;
                 case 3:
+//                    TASK 8-a: Delete Room By ID
+                    roomService.deleteRoomById();
                     break;
                 case 4:
                     //TASK 6-a: Find all the rooms

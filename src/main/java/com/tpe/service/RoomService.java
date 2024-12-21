@@ -76,4 +76,14 @@ public class RoomService {
             System.out.println("There are no rooms.");
         }
     }
+
+//    TASK 8-b
+    public void deleteRoomById() {
+
+        Room room = findRoomById();
+
+        if (room != null) {
+            roomRepository.delete(room);
+        }
+    }
 }

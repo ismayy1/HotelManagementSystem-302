@@ -51,4 +51,19 @@ public class RoomRepository {
         }
         return null;
     }
+
+//    TASK 8-c:
+    public void delete(Room room) {
+        try {
+            session = HibernateUtils.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.delete(room);
+            transaction.commit();
+//            System.out.println("The Room is saved successfully!");   // done with the postPersist method in Room Entity
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            HibernateUtils.closeSession(session);
+        }
+    }
 }
