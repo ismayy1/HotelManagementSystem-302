@@ -15,8 +15,8 @@ public class Hotel {
     private String name;
     @Column(nullable = false)
     private String location;
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.REMOVE)  // private Hotel hotel; -> in the room class
-    private List<Room> rooms = new ArrayList<>();
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)  // private Hotel hotel; -> in the room class
+    private List<Room> rooms = new ArrayList<>();   // this can be empty
 
     @PostPersist
     public void postPersist(){

@@ -17,7 +17,7 @@ public class Guest {
 
     private LocalDateTime createDate;
 
-    @OneToMany(mappedBy = "guest", orphanRemoval = true)
+    @OneToMany(mappedBy = "guest", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Reservation> reservations = new ArrayList<>();
 
     @Embedded   // this annotation is optional

@@ -19,7 +19,7 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "hotel_id")  // hotel_id -> is the name that we give to the column on the DB
     private Hotel hotel;    // hotel -> is a name we will declare in the Hotel class
-    @OneToMany(mappedBy = "room", orphanRemoval = true)
+    @OneToMany(mappedBy = "room", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Reservation> reservations = new ArrayList<>();
 
     public Room() {
