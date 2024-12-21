@@ -185,6 +185,8 @@ public class HotelManagementSystem {
                 case 3:
                     break;
                 case 4:
+//                    TASK 10-a: Find All Guests
+                    guestService.findAllGuests();
                     break;
                 case 0:
                     exit = true;
