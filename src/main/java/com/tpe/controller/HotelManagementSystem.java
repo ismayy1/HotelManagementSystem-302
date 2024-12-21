@@ -1,8 +1,10 @@
 package com.tpe.controller;
 
 import com.tpe.config.HibernateUtils;
+import com.tpe.domain.Guest;
 import com.tpe.repository.HotelRepository;
 import com.tpe.repository.RoomRepository;
+import com.tpe.service.GuestService;
 import com.tpe.service.HotelService;
 import com.tpe.service.RoomService;
 
@@ -19,6 +21,8 @@ public class HotelManagementSystem {
 
         RoomRepository roomRepository = new RoomRepository();
         RoomService roomService = new RoomService(hotelService, roomRepository);
+
+        GuestService guestService = new GuestService();
 
         boolean exit = false; //If exit is false, while condition is NOT false, so, true.
 
@@ -42,7 +46,7 @@ public class HotelManagementSystem {
                     displayRoomOperationsMenu(roomService);
                     break;
                 case 3:
-                    displayGuestOperationsMenu();
+                    displayGuestOperationsMenu(guestService);
                     break;
                 case 4:
                     displayReservationOperationsMenu();
@@ -155,7 +159,7 @@ public class HotelManagementSystem {
     }
 
     //guest operations
-    private static void displayGuestOperationsMenu() {
+    private static void displayGuestOperationsMenu(GuestService guestService) {
         System.out.println("Guest Operation Menu");
 
         boolean exit = false;
@@ -175,6 +179,8 @@ public class HotelManagementSystem {
                 case 1:
                     break;
                 case 2:
+//                    TASK 9-a: Find Guest By ID
+                    guestService.findGuestById();
                     break;
                 case 3:
                     break;
