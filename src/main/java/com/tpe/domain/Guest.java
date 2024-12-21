@@ -27,6 +27,10 @@ public class Guest {
     public void prePersist() {
         this.createDate = LocalDateTime.now();
     }
+    @PostPersist
+    public void postPersist() {
+        System.out.println("Guest Saved Successfully!");
+    }
 
     public Long getId() {
         return id;

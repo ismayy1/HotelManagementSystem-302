@@ -1,5 +1,6 @@
 package com.tpe.service;
 
+import com.tpe.domain.Address;
 import com.tpe.domain.Guest;
 import com.tpe.exception.GuestNotFoundException;
 import com.tpe.exception.RoomNotFoundException;
@@ -14,6 +15,33 @@ public class GuestService {
 
     public GuestService(GuestRepository guestRepository) {
         this.guestRepository = guestRepository;
+    }
+
+    //    TASK 13-b
+    public void saveGuest() {
+        Guest guest = new Guest();
+
+        System.out.println("Enter guest Name:");
+        guest.setName(scanner.nextLine());
+
+        Address address = new Address();
+
+        System.out.println("Enter guest street:");
+        address.setStreet(scanner.nextLine());
+
+        System.out.println("Enter guest city:");
+        address.setCity(scanner.nextLine());
+
+        System.out.println("Enter guest country:");
+        address.setCountry(scanner.nextLine());
+
+        System.out.println("Enter guest zipCode:");
+        address.setZipCode(scanner.nextLine());
+
+        guest.setAddress(address);
+
+        guestRepository.save(guest);
+//        System.out.println("Guest Saved successfully!");  // postPersist doest this for us
     }
 
 //    TASK 9-b:
@@ -50,9 +78,5 @@ public class GuestService {
         }else {
             System.out.println("There are no guests.");
         }
-    }
-
-    public void saveGuest() {
-
     }
 }
