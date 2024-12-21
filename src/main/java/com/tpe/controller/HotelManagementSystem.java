@@ -6,6 +6,7 @@ import com.tpe.repository.HotelRepository;
 import com.tpe.repository.RoomRepository;
 import com.tpe.service.GuestService;
 import com.tpe.service.HotelService;
+import com.tpe.service.ReservationService;
 import com.tpe.service.RoomService;
 
 import java.util.Scanner;
@@ -23,6 +24,8 @@ public class HotelManagementSystem {
         RoomService roomService = new RoomService(hotelService, roomRepository);
 
         GuestService guestService = new GuestService();
+
+        ReservationService reservationService = new ReservationService();
 
         boolean exit = false; //If exit is false, while condition is NOT false, so, true.
 
@@ -49,7 +52,7 @@ public class HotelManagementSystem {
                     displayGuestOperationsMenu(guestService);
                     break;
                 case 4:
-                    displayReservationOperationsMenu();
+                    displayReservationOperationsMenu(reservationService);
                     break;
                 case 0:
                     exit = true;
@@ -186,7 +189,7 @@ public class HotelManagementSystem {
                     break;
                 case 4:
 //                    TASK 10-a: Find All Guests
-                    guestService.findAllGuests();
+                    guestService.getAllGuests();
                     break;
                 case 0:
                     exit = true;
@@ -200,7 +203,7 @@ public class HotelManagementSystem {
     }
 
     //reservation operations
-    private static void displayReservationOperationsMenu() {
+    private static void displayReservationOperationsMenu(ReservationService reservationService) {
         System.out.println("Reservation Operation Menu");
 
         boolean exit = false;
@@ -220,6 +223,8 @@ public class HotelManagementSystem {
                 case 1:
                     break;
                 case 2:
+//                    TASK 11-a: Find Reservation By ID
+                    reservationService.findReservationByID();
                     break;
                 case 3:
                     break;

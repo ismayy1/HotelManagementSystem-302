@@ -5,6 +5,7 @@ import com.tpe.exception.GuestNotFoundException;
 import com.tpe.exception.RoomNotFoundException;
 import com.tpe.repository.GuestRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GuestService {
@@ -36,6 +37,18 @@ public class GuestService {
         return foundGuest;
     }
 
-    public void findAllGuests() {
+//    TASK 10-b:
+    public void getAllGuests() {
+        List<Guest> guests = guestRepository.findAll();
+
+        if (!guests.isEmpty()){
+            System.out.println("========== ALL GUESTS ==========");
+            for (Guest guest : guests){
+                System.out.println(guest);
+            }
+            System.out.println("================================");
+        }else {
+            System.out.println("There are no guests.");
+        }
     }
 }
