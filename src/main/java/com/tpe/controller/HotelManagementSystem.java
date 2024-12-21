@@ -192,6 +192,8 @@ public class HotelManagementSystem {
                     guestService.findGuestById();
                     break;
                 case 3:
+//                    TASK 14-a: Delete Guest By Id
+                    guestService.deleteGuestById();
                     break;
                 case 4:
 //                    TASK 10-a: Find All Guests

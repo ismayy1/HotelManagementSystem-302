@@ -79,4 +79,13 @@ public class GuestService {
             System.out.println("There are no guests.");
         }
     }
+
+//    TASK 14-b
+    public void deleteGuestById() {
+        Guest foundGuest = findGuestById();
+
+        if (foundGuest != null) {
+            guestRepository.delete(foundGuest);
+        }
+    }
 }

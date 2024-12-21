@@ -32,6 +32,11 @@ public class Guest {
         System.out.println("Guest Saved Successfully!");
     }
 
+    @PostRemove
+    public void postRemove() {
+        System.out.println("Guest deleted successfully!");
+    }
+
     public Long getId() {
         return id;
     }
