@@ -5,8 +5,6 @@ public class HotelNotFoundException extends RuntimeException {
         super(message);
     }
 }
-
-
 //Homework: create exceptions
     // RoomNotFoundException
     // ReservationNotFoundException

@@ -25,7 +25,6 @@ public class RoomRepository {
         }
     }
 
-
     public Room findById(Long id) {
         try {
             session = HibernateUtils.getSessionFactory().openSession();

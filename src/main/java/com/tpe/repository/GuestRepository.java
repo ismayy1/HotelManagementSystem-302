@@ -9,7 +9,6 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class GuestRepository {
-
 //  TASK 13-c
     public void save(Guest guest) {
         try {

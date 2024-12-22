@@ -11,9 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ReservationService {
-
     Scanner scanner = new Scanner(System.in);
-
     private final ReservationRepository reservationRepository;
     private final GuestService guestService;
     private final RoomService roomService;
@@ -49,7 +47,6 @@ public class ReservationService {
         System.out.println("Enter Reservation ID:");
         Long id = scanner.nextLong();
         scanner.nextLine();
-
 
         Reservation reservation = reservationRepository.findByID(id);
         try{
