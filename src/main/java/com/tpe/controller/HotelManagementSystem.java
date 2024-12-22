@@ -47,15 +47,19 @@ public class HotelManagementSystem {
 
             switch (choice){
                 case 1:
+//                    TASK 1-a: Hotel Operations
                     displayHotelOperationsMenu(hotelService);
                     break;
                 case 2:
+//                    TASK 2-a: Room Operations
                     displayRoomOperationsMenu(roomService);
                     break;
                 case 3:
+//                    TASK 3-a: Guest Operations
                     displayGuestOperationsMenu(guestService);
                     break;
                 case 4:
+//                    TASK 4-a: Reservation Operations
                     displayReservationOperationsMenu(reservationService);
                     break;
                 case 5:
