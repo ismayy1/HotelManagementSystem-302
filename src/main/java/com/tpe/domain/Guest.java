@@ -14,7 +14,6 @@ public class Guest {
     private Long id;
     @Column(nullable = false)
     private String name;
-
     private LocalDateTime createDate;
 
     @OneToMany(mappedBy = "guest", orphanRemoval = true, fetch = FetchType.EAGER)
